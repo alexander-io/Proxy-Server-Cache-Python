@@ -4,7 +4,7 @@ Spring 2017
 
 Homework 7: HTTP Web Proxy Server
 
-![cs325](cs325.png "CS 325 Pink Proxy")
+![Alt text](./cs325_course_page.png)
 
 I have successfully implemented a python proxy server application.
 
