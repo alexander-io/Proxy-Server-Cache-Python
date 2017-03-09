@@ -1,0 +1,28 @@
+body {
+	background-color: #ffffff; /* #6F1F17 */
+	color: #5d5d5d;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.5em;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* links */
+a:link { color: #bb0000; text-decoration: none;}
+a:visited { color: #bb0000; text-decoration: none;}
+a:hover { color: #660000; text-decoration: none;}
+
+/* publications */
+.pubs { margin: 12px 0; }
+/* .pubs:hover {  background-color: #f6f6f7; } */
+
+/* courses schedule */
+.courseSched {  background-color: #FFFFFF; }
+/* .courseSched:hover {  background-color: #FFFAF0; } 
+.courseSched:hover {  background-color: #F5FEFF; } */
+.courseSchedToday { background-color: #FFBB1B; }
+

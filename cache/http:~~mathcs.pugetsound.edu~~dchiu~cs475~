@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Fira+Sans:300' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" type="text/css" href="/~dchiu/includes/dchiu.css"/>
+ <link rel="stylesheet" type="text/css" href="/~dchiu/includes/ajaxtabs/ajaxtabs.css" />
+ <title>CS 475 Operating Systems - University of Puget Sound</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <meta http-equiv="cache-control" content="no-cache" />
+ <meta name="author" content="David Chiu" />
+</head>
+<body style="background-color:pink;">
+<h2>
+CS 475 Operating Systems<br />Spring 2017<br />
+</h2>
+   <table>
+    <tr>
+        <td>Instructor:</td>
+        <td><a href="../">David Chiu</a><br /></td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>dchiu [at] pugetsound.edu<br /></td>
+    </tr>
+    <tr>
+        <td>Phone:</td>
+        <td>(253) 879-2853<br /></td>
+    </tr>
+    <tr>
+        <td>Meeting:</td>
+        <td>MWF 3:00-3:50 in Thompson Hall 409</td>
+    </tr>
+    <tr>
+        <td>Office:</td>
+        <td>TH 390B<br /></td>
+    </tr>
+    <tr>
+        <td>Office Hours:</td>
+        <td>Open door, or by appointment<br /></td>
+    </tr>
+    </table>
+
+<br />
+
+<h3>Course Syllabus</h3>
+The <a href="CS475-syllabus.pdf">course syllabus</a> contains general information on course topics, grading procedures, and classroom policies.
+
+<h3>Textbooks</h3>
+<ul>
+<li>Silberschatz, Galvin, and Gagne. <a target="_new" href="http://os-book.com/">Operating Systems Concepts</a>. 9th Ed. <b>(Required)</b></li>
+<li>Kernighan and Ritchie. The C Programming Language. 2nd Ed. <b>(Supplemental)</b></li>
+<li>Comer. <a target="_new" href="http://www.xinu.cs.purdue.edu/">Operating System Design - The Xinu Approach</a>. 2nd Ed. <b>(Supplemental)</b></li>
+</ul>
+
+<h3>Notes</h3>
+Access to class notes requires a username and password which are given
+in class.
+<ul style="width:900px">
+<li><a href="notes/CS475_1-intro.pdf">Lecture 1. History and Trends in Computer Systems</a></li>
+<li><a href="notes/CS475_2-kernel.pdf">Lecture 2. Interrupts, Traps, Dual-mode Operation</a></li>
+<li><a href="notes/CS475_3-processes.pdf">Lecture 3. Process Management</a></li>
+<li><a href="notes/CS475_4-threads.pdf">Lecture 4. Threads</a></li>
+<li><a href="notes/CS475_5-sched.pdf">Lecture 5. CPU Scheduling</a></li>
+<li><a href="notes/CS475_6-sync1.pdf">Lecture 6 (Part I). Synchronization: Critical Section, Atomic Operations, Locks</a></li>
+</ul>
+
+
+<h3>Course Schedule</h3>
+<table style="border-radius: 15px; padding: 10px 10px; border-width: 1px; background-color: #D8D9DB; width: 1000px">
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		1<br/> Chap 1 and Chap 2</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 01/16/2017</td><td valign="top">Wed 01/18/2017</td><td>Fri 01/20/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>MLK Day (No classes)</i></span><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><a href="CS475-syllabus.pdf">Course Syllabus<a><br/>What is an OS?<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />A history of computing<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>MLK Day (No classes)</i></span><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><a href="CS475-syllabus.pdf">Course Syllabus<a><br/>What is an OS?<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />A history of computing<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="hwk1/">Hwk 1: C Basics</a> (<a href="notes/Hwk1_WordStatSol.zip">Soln</a>)<br /><br /><a href="notes/RG1.pdf">Review Guide 1: OS Basics<a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		2<br/> Chap 2</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 01/23/2017</td><td valign="top">Wed 01/25/2017</td><td>Fri 01/27/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />History (cont.): impact, trends<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />HW/SW Interrupts, traps<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Hwk 1 Due</i></span>					<br />Systems calls and dual-mode operation<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />History (cont.): impact, trends<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />HW/SW Interrupts, traps<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Systems calls and dual-mode operation<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="hwk2/">Hwk 2: Pointers</a> (<a href="notes/Hwk2_HeapsortSol.zip">Soln</a>)<br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		3<br/> Chap 3: Process Management</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 01/30/2017</td><td valign="top">Wed 02/01/2017</td><td>Fri 02/03/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Process Management: address space<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Process: PCB, state transitions<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Hwk 2 Due</i></span>					<br />Process: <code>fork(), wait(), exec()</code>, zombies and orphans<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Process Management: address space<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Process: PCB, state transitions<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Process: <code>fork(), wait(), exec()</code>, zombies and orphans<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="hwk3/">Hwk 3: Memory Allocation</a> (<a href="notes/Hwk3_RPNSol.zip">Soln</a>)<br /><br /><a href="notes/RG2.pdf">Review Guide 2: Proc &amp; Threads<a><br /><a href="code/?file=zombify.c">Code (Lec): zombify.c<a><br /><a href="code/?file=orphan.c">Code (Lec): orphan.c<a><br /><a href="code/?file=execv.c">Code (Lec): exec.c<a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		4<br/> Chap 4: Threads</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 02/06/2017</td><td valign="top">Wed 02/08/2017</td><td>Fri 02/10/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Thread Management: performance and data sharing<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Threads: user vs. kernel; implementation<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Threads: <code>pthread</code> library<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Thread Management: performance and data sharing<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Threads: user vs. kernel; implementation<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Threads: <code>pthread</code> library<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="proj1/">Project 1: Ready Queue</a><br /><br /><a href="code/?file=threadFib.c">Code (Lec): threadFib.c<a><br /><a href="code/?file=rtclock.h">Code (Lec): rtclock.h<a><br /><a href="code/?file=rtclock.c">Code (Lec): rtclock.c<a><br /><a href="code/?file=threadSum.c">Code (Lec): threadSum.c<a><br /><a href="code/?file=threadSort.c">Code (RG): threadSort.c<a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		5<br/> Chap 6: CPU Scheduling</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 02/13/2017</td><td valign="top">Wed 02/15/2017</td><td>Fri 02/17/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />CPU Scheduling: characterizing job execution<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Sched: FCFS, RR<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Hwk 3 Due</i></span>					<br />Sched: SJF, SRTF; predicting burst times<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />CPU Scheduling: characterizing job execution<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sched: FCFS, RR<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sched: SJF, SRTF; predicting burst times<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="hwk4/">Hwk 4: Puget Sound Shell</a> (<a href="notes/Hwk4_pshSol.zip">Soln</a>)<br /><br /><a href="notes/RG3.pdf">Review Guide 3: Scheduling<a><br /><a href="https://en.wikipedia.org/wiki/Apollo_Guidance_Computer#Software" target="_new">Apollo 11 (Priority Scheduling)</a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		6<br/> Chap 6: CPU Scheduling</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 02/20/2017</td><td valign="top">Wed 02/22/2017</td><td>Fri 02/24/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Sched: Priority, MLFQ; OSX and Linux<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>Review</i></span><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>Midterm Exam I</i></span><br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sched: Priority, MLFQ; OSX and Linux<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>Review</i></span><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>Midterm Exam I</i></span><br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+			</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		7<br/> Chap 5: Synchronization</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 02/27/2017</td><td valign="top">Wed 03/01/2017</td><td>Fri 03/03/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Project 1 Due</i></span>					<br />Sched: hyperthreading, multicore considerations<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Synchronization: Critical section, locks<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Hwk 4 Due</i></span>					<br />Sync: Implementing locks<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sched: hyperthreading, multicore considerations<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Synchronization: Critical section, locks<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sync: Implementing locks<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="proj2/">Project 2: Priority Scheduling</a><br /><a href="hwk5/">Hwk 5: Parallel MMM</a><br /><br /><a href="notes/RG4.pdf">Review Guide 4: Synchronization<a><br /><a href="code/?file=blockinglock.c">Code (Lec): blockinglock.c<a><br /><a href="code/?file=spinlock.c">Code (Lec): spinlock.c<a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		8<br/> Finish Chap 5</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 03/06/2017</td><td valign="top" class="courseSchedToday">Wed 03/08/2017</td><td>Fri 03/10/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Sync: Implementing locks; priority inversion problem<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Sync: Blocking locks; Semaphores<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Sync: Implementing semaphores; helpful professor problem<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sync: Implementing locks; priority inversion problem<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sync: Blocking locks; Semaphores<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sync: Implementing semaphores; helpful professor problem<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="http://research.microsoft.com/en-us/um/people/mbj/mars_pathfinder/mars_pathfinder.html">Pathfinder (Priority Inversion)</a><br /><a href="notes/therac.pdf">Therac-25</a><br /><a href="notes/northeast_blackout.pdf">GE XA/21 (2003 blackout)</a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		Spring Break!<br/> </b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 03/13/2017</td><td valign="top">Wed 03/15/2017</td><td>Fri 03/17/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><img width="120" height="120" src="figures/frog.jpg" /><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><img width="120" height="120" src="figures/frog.jpg" /><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><img width="120" height="120" src="figures/frog.jpg" /><br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><img width="120" height="120" src="figures/frog.jpg" /><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><img width="120" height="120" src="figures/frog.jpg" /><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><img width="120" height="120" src="figures/frog.jpg" /><br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+			</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		9<br/> Chap 7: Deadlocks</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 03/20/2017</td><td valign="top">Wed 03/22/2017</td><td>Fri 03/24/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Project 2 Due</i></span>					<br />Sync: bounded-buffer problem<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Sync: monitors and Java<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Hwk 5 Due</i></span>					<br />Deadlocks (DL): conditions and prevention<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sync: bounded-buffer problem<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Sync: monitors and Java<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Deadlocks (DL): conditions and prevention<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="proj3/">Project 3: Time Sharing</a><br /><a href="hwk6/">Hwk 6: The Bartender</a><br /><br /><a href="notes/RG5.pdf">Review Guide 5: Deadlocks<a><br /><a href="notes/Lec6_ProdCons_InC.zip">Code: ProdCons C<a><br /><a href="notes/Lec6_ProdCons_InJava.zip">Code: ProdCons Java<a><br /><a href="notes/Lec6_ReadersWriters_InC.zip">Code: ReadersWriters C<a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		10<br/> Chap 8: Memory Management</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 03/27/2017</td><td valign="top">Wed 03/29/2017</td><td>Fri 03/31/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />DL: Banker's algorithm<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />DL: detection and recovery<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Memory Management (MM): virtual addressing<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />DL: Banker's algorithm<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />DL: detection and recovery<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Memory Management (MM): virtual addressing<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+			</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		11<br/> Chap 8: Memory Management</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 04/03/2017</td><td valign="top">Wed 04/05/2017</td><td>Fri 04/07/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />MM: Virtual addressing<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>Review</i></span><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>Midterm Exam II</i></span><br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />MM: Virtual addressing<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>Review</i></span><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>Midterm Exam II</i></span><br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+			</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		12<br/> Chap 8: Memory Management</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 04/10/2017</td><td valign="top">Wed 04/12/2017</td><td>Fri 04/14/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Project 3 Due</i></span>					<br />MM: Virtual addressing and partitioning<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />MM: Partitioning and segmentation<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Hwk 6 Due</i></span>					<br />MM: Paging<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />MM: Virtual addressing and partitioning<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />MM: Partitioning and segmentation<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />MM: Paging<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="proj4/">Project 4: Deadlock Detection</a><br /><a href="hwk7/">Hwk 7: VMM Simulator</a><br /><br /><a href="notes/RG6.pdf">Review Guide 6: Memory Mgmt<a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		13<br/> Chap 9: Virtual Memory</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 04/17/2017</td><td valign="top">Wed 04/19/2017</td><td>Fri 04/21/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />MM: Translation Lookaside Buffer (TLB)<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Virtual Memory (VM): demand paging and page fault handling<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />VM: FIFO, MIN, LRU replacement policies<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />MM: Translation Lookaside Buffer (TLB)<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Virtual Memory (VM): demand paging and page fault handling<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />VM: FIFO, MIN, LRU replacement policies<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+			</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		14<br/> Chap 12: Filesystems</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 04/24/2017</td><td valign="top">Wed 04/26/2017</td><td>Fri 04/28/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />VM: Clock; Start memory allocation and working-set model<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />VM: memory allocation (cont.)<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br />Filesystem: file abstraction<br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />VM: Clock; Start memory allocation and working-set model<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />VM: memory allocation (cont.)<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Filesystem: file abstraction<br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+		<a href="notes/RG7.pdf">Review Guide 7: Filesystems<a><br />	</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		 
+			Week
+		15<br/> Chap 12: Filesystems</b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 05/01/2017</td><td valign="top">Wed 05/03/2017</td><td>Fri 05/05/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+						<br /><span style="color: #0e0ecf;"><i>Project 4 Due</i></span>					<br />Filesystem (cont.)<br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>Review</i></span><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>Reading Period (no class)</i></span><br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br />Filesystem (cont.)<br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>Review</i></span><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>Reading Period (no class)</i></span><br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+			</td>
+		</tr>
+	<tr>
+	 <td colspan="4">
+		<b>
+		Finals Week<br/> </b>
+		</b>
+	 </td>
+	</tr>
+	<tr>
+	<td valign="top">Mon 05/08/2017</td><td valign="top">Wed 05/10/2017</td><td>Fri 05/12/2017</td>		  <td>Links</td>
+		</tr>
+	<tr class="courseSched">
+
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><span style="color: #0e0ecf;"><i>Hwk 7 Due</i><br/><i>Final Exam 4-6p</i></span><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><br /><br />
+	</td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1">
+				<br /><br /><br />
+	</td>
+	
+<!--		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><span style="color: #0e0ecf;"><i>Hwk 7 Due</i><br/><i>Final Exam 4-6p</i></span><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><br /><br /></td>
+		 <td valign="top" style="padding: 3px; width: 25%" colspan="1"><br /><br /><br /></td>
+	-->
+
+		<td valign="top" style="padding: 3px; background-color: #F5FEFF"><br />
+			</td>
+		</tr>
+</table>
+<br />
+<table style="width:1000px;">
+ <tr>
+  <td  align="left" valign="top">
+	<table>
+	<tr>
+	<td><a target="_new" href="http://www.pugetsound.edu"><img style="height: 90px; background-color: #6F1F17" src="/~dchiu/figs/UPS.png" /></a></td>
+	<td>&nbsp;&nbsp;</td>
+	<td valign="top">
+        Department of Mathematics and Computer Science<br />
+        University of Puget Sound<br />
+        1500 N. Warner St<br />
+        Tacoma, WA 98416
+	</td>
+	</tr>
+	</table>
+ </td>
+ <td align="right" valign="top">
+ </td>
+ </tr>
+ <tr>
+  <td colspan="2"><br /></td>
+ </tr>
+</table>
+
+</body>
+</html>
